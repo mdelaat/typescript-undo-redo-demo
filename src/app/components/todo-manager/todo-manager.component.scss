@@ -1,0 +1,66 @@
+.todo-table {
+  tbody {
+    border-bottom: 1px solid teal;
+    tr {
+      cursor: pointer;
+      &:hover {
+        background-color: #db709385;
+      }
+      &.active {
+        background-color: #30b9b136;
+      }
+    }
+  }
+
+  th.id {
+    width: 20px;
+  }
+
+  th.title {
+    width: 200px;
+  }
+
+  th.description {
+    // width: 300px;
+  }
+
+  th.priority {
+    width: 70px;
+  }
+
+  th.done {
+    width: 50px;
+  }
+
+  td.done {
+    .check {
+      display: none;
+    }
+    &.checked .check {
+      display: inline;
+    }
+  }
+
+  tr.create-item-row td {
+    padding: 10px 0;
+    text-align: right;
+  }
+}
+
+.todo-form {
+  width: 100%;
+  max-width: 460px;
+
+  > div {
+    margin: 0.5rem 0;
+  }
+
+  label {
+    display: inline-block;
+    width: 200px;
+  }
+
+  .text-field {
+    width: 250px;
+  }
+}

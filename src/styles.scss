@@ -1,0 +1,22 @@
+body, input.text-field {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  td, th {
+    padding: 0 0.5rem;
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+.pull-right {
+  float: right;
+}

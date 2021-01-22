@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="left">
+    <app-todo-manager></app-todo-manager>
+  </div>
+  <div class="right history">
+    <div>
+      <strong>Undo stack</strong>
+      <button (click)="onUndoClick()">Undo (ctrl+z)</button>
+      <ol reversed>
+        <li *ngFor="let entry of undoEntries">{{entry.command.displayName}}</li>
+      </ol>
+    </div>
+    <div>
+      <strong>Redo stack</strong>
+      <button (click)="onRedoClick()">Redo (ctrl+y)</button>
+      <ol>
+        <li *ngFor="let entry of redoEntries">{{entry.command.displayName}}</li>
+      </ol>
+    </div>
+    <div class="clear">
+      <button (click)="onClearHistoryClick()">Clear history</button>
+    </div>
+  </div>
+</div>

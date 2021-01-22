@@ -1,0 +1,57 @@
+<h2>List of to-do items</h2>
+<table class="table todo-table">
+  <thead>
+    <tr>
+      <th class="id">#</th>
+      <th class="title">Title</th>
+      <th class="description">Description</th>
+      <th class="priority">Priority</th>
+      <th class="done">Done?</th>
+      <th class="delete">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allItems" (click)="onItemRowClick(item)" [ngClass]="{'active':currentItem === item}">
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.priority}}</td>
+      <td class="done" [ngClass]="{'checked': item.done}"><span class="check">&#10003;</span></td>
+      <td><button (click)="onDeleteItemClick(item, $event)" title="Delete">X</button></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr class="create-item-row">
+      <td colspan="5">
+        <button (click)="onCreateItemClick()">+ Create new</button>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+<h3>Item details</h3>
+<p *ngIf="!currentItem">No item selected</p>
+<form *ngIf="currentItem" class="todo-form">
+  <div>
+    <label for="title">Title</label>
+    <input class="text-field" type="text" name="title" id="title" [ngModel]="currentItem.title" (ngModelChange)="onTitleChange($event)" [ngModelOptions]="{updateOn: 'blur'}">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea class="text-field" name="description" id="description" rows="4" [ngModel]="currentItem.description" (ngModelChange)="onDescriptionChange($event)" [ngModelOptions]="{updateOn: 'blur'}"></textarea>
+  </div>
+  <div>
+    <label>Priority</label>
+    <span>{{currentItem.priority}}</span>
+    <div class="pull-right">
+      <button (click)="onPriorityDownClick()">- 3</button>
+      <button (click)="onPriorityUpClick()">+ 3</button>
+    </div>
+  </div>
+  <div>
+    <label>Status</label>
+    <span>{{currentItem.done ? 'Done' : 'In progress'}}</span>
+    <div class="pull-right">
+      <button (click)="onToggleDoneClick()">{{currentItem.done ? 'Mark in progress' : 'Mark done'}}</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+
+  .history {
+    margin-left: auto;
+    width: 350px;
+    min-height: 400px;
+    padding: 5px;
+  }
+}
+
+.history {
+  background-color: rgb(211, 202, 202);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+
+  button {
+    width: 100px;
+  }
+
+  li {
+    font-style: italic;
+    &:first-child {
+      font-style: normal;
+    }
+  }
+}
